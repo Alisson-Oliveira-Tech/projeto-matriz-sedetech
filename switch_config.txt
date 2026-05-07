@@ -1,0 +1,179 @@
+Building configuration...
+
+Current configuration : 3262 bytes
+!
+version 15.0
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch_Principal
+!
+enable secret 5 $1$mERr$VXjJa.vG3OmaDOjYFoNLW1
+!
+!
+!
+ip domain-name sedetech.com.br
+!
+username admin secret 5 $1$mERr$VD9AjhtsZw6QuNBr2CyCb1
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ description FINANCEIRO
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/2
+ description FINANCEIRO
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/3
+ description FINANCEIRO
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/4
+ description FINANCEIRO
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/5
+ description FINANCEIRO
+ switchport access vlan 10
+ switchport mode access
+!
+interface FastEthernet0/6
+ description RH
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/7
+ description RH
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/8
+ description RH
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/9
+ description RH
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/10
+ description RH
+ switchport access vlan 20
+ switchport mode access
+!
+interface FastEthernet0/11
+ description CFTV_FINANCEIRO_CAM01
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/12
+ description CFTV_RH_CAM02
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/13
+ description CFTV
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/14
+ description CFTV
+ switchport access vlan 30
+ switchport mode access
+!
+interface FastEthernet0/15
+ description CONEXAO_ACCESS_POINT
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/16
+ description WI-FI
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/17
+ description WI-FI
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/18
+ description WI-FI
+ switchport access vlan 40
+ switchport mode access
+!
+interface FastEthernet0/19
+ description SERVER
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/20
+ description SERVER
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/21
+ description SERVER
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/22
+ description SERVER
+ switchport access vlan 50
+ switchport mode access
+!
+interface FastEthernet0/23
+ description GERENCIA
+ switchport access vlan 99
+ switchport mode access
+!
+interface FastEthernet0/24
+ switchport access vlan 555
+ switchport mode access
+ shutdown
+!
+interface GigabitEthernet0/1
+ description LINK_TRUNK_ROTEADOR
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ switchport access vlan 555
+ switchport mode access
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan99
+ ip address 192.168.99.2 255.255.255.0
+!
+ip default-gateway 192.168.99.1
+!
+banner motd ^CACESSO RESTRITO - SOMENTE PESSOAL AUTORIZADO^C
+!
+!
+!
+line con 0
+ login local
+!
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 15
+ login
+!
+!
+!
+!
+end
